@@ -1,4 +1,4 @@
-grunt-makdown-custom
+how to custom grunt-makdown
 ====================
 
 how to add SCSS support to grunt-markdown
