@@ -1,10 +1,99 @@
+div.hen{background: #ff0; color:#D00; font-size: 0.7em;}
+img {
+	display:block;
+	border: solid 1px #444;
+}
+blockquote{
+  font-weight: bold;
+	background:#ff0;
+	margin: 1em 0;
+	padding-left: 1em;
+}
+body {
+	font-family:sans-serif;
+	width:36em;
+}
+p{
+	margin:0; text-indent: 1em;
+	line-height: 2em;
+}
+.zuchuu{
+	border : 1px solid red;
+	font-size: 0.8em;
+}
+h1::before{
+	content: '●-●';
+	color:#F08;
+}
+h1{margin-top: 2em;}
+h2{margin-top: 2em; border-left:3px solid #F08;
+padding-left: 0.5em;}
+h3{margin-top: 2em;}
+h4{margin-top: 4em; border-top: 1px solid #F08;}
+h5::before{
+  content: '●';
+  color:#F08;
+  font-size: 0.7em;
+}
+h6{margin-bottom: -1.5em;}
+
+td,th{border: 1px solid #DDD; background: #BDF}
+
+pre{
+	font-family: Osaka-mono, monospace;
+}
+pre code{
+	background: #FBB;	
+	width: 55em;
+}
+code.lang-css{
+  background: #CFD;
+}
+code.lang-html{
+  background: #DEF; 
+}
+code.lang-js{
+  background: #BBB;
+}
+code.lang-scss{
+  background: #FDD;
+}
+code.lang-t{
+	background: #BFB; max-width:30em;		
+}
+code.lang-cmd{
+  background: #000;
+  color: #fff;
+}
+strong{
+	color: #F08;
+}
+del{
+	text-decoration: none;
+	border: solid 1px #0BF;
+	background:  #8EF;
+}
+em{
+  background: #F88;
+}
+
+.caption{
+	color: #444;
+	font-size: 0.8em;
+	text-indent: 0;
+	margin-bottom: 1em;
+}
+.trimbase{
+	border: solid 1px #444;
+}
+
+
       /*github.com style (c) Vasily Polovnyov <vast@whiteants.net>*/
       pre code {
         display: block; padding: 0.5em;
         color: #333;
-        background: #f8f8ff;
-        font-family: Menlo, monospace;
-     }
+        background: #f8f8ff
+      }
       pre .comment,
       pre .template_comment,
       pre .diff .header,
@@ -29,7 +118,7 @@
       pre .number,
       pre .hexcolor,
       pre .ruby .constant {
-        color: #099;
+        color: #A09;
       }
       pre .string,
       pre .tag .value,
