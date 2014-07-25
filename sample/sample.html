@@ -9,14 +9,17 @@
 	<link rel="stylesheet" href="../cssjs/myrule.css"> 
   </head>
   <body>  
-    <h1 id="-">見出し</h1>
-<h2 id="-">見出し</h2>
-<h3 id="-">見出し</h3>
-<h4 id="-">見出し</h4>
-<h5 id="-">見出し</h5>
-<h6 id="-">見出し</h6>
+    <h1 id="markdown-">Markdown簡易チートシート</h1>
+<h1 id="-1">見出し1</h1>
+<h2 id="-2">見出し2</h2>
+<h3 id="-3">見出し3</h3>
+<h4 id="-4">見出し4</h4>
+<h5 id="-5">見出し5</h5>
+<h6 id="-6">見出し6</h6>
+<p><br></p>
 <p>改行は1ライン空ける。</p>
-<p>1行空けたいときは<code>&lt;br&gt;</code>とする。</p>
+<p>通常の改行を複数空けても1つにまとめられてしまうので、1行空けたいときは次のように<code>&lt;br&gt;</code>としておくといいみたい。</p>
+<p><br></p>
 <ul>
 <li>箇条書き</li>
 <li>箇条書き</li>
@@ -24,21 +27,26 @@
 </ul>
 <p>文章中の<strong>強調</strong>は<code>**</code>で囲みます。
 数式やタグなどは<code>` </code>で囲まないとそのまま出力されるので注意。</p>
-<pre><code class="lang-css">.sample{
-    /*ソースコードは```で囲む。```の後にcssやjsを付けると色分け可能*/
-}</code></pre>
+<pre><code class="lang-css"><span class="class">.sample</span><span class="rules">{
+    <span class="comment">/*ソースコードは```で囲む。```の後にcssやjsを付けると色分け可能*/</span>
+<span class="rule">}</span></span></code></pre>
 <p>リンクは</p>
-<pre><code>[文字列](URL)</code></pre>
+<pre><code><span class="link_label">[文字列]</span>(<span class="link_url">URL</span>)</code></pre>
 <p>画像は</p>
-<pre><code>![キャプション文字列](img/ファイル名.png)</code></pre>
+<pre><code>!<span class="link_label">[キャプション文字列]</span>(<span class="link_url">img/ファイル名.png</span>)</code></pre>
+<p>区切り線は</p>
+<pre><code><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
+<p>なお、区切り線の「<code>---</code>」は、直前に文字があると見出しという意味で使われてしまうので、上1行空けるようにしてください。</p>
 <h1 id="-">独自拡張</h1>
 <h2 id="-">画像のズームとトリミング</h2>
-<pre><code>![キャプション文字列](img/ファイル名.png?zoom=40?clip=0+0+200+200)</code></pre>
+<pre><code>!<span class="link_label">[キャプション文字列]</span>(<span class="link_url">img/ファイル名.png?zoom=40?clip=0+0+200+200</span>)</code></pre>
 <h2 id="-">図中文字</h2>
 <p>エディタのスニペット機能などで自動入力できるようにしておくと便利。</p>
-<pre><code>&lt;div class=&quot;zuchuu&quot;&gt;thisをクリック&lt;/div&gt;</code></pre>
-<h2 id="-">編集指示</h2>
-<pre><code>&lt;div class=&quot;hen&quot;&gt;編：コメント&lt;/div&gt;</code></pre>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"zuchuu"</span>&gt;</span>thisをクリック<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+<h2 id="-">編集コメントを入れたい</h2>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"hen"</span>&gt;</span>編：コメント<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+<h2 id="-">キーフォントにしたい</h2>
+<pre><code><span class="tag">&lt;<span class="title">del</span>&gt;</span>［Esc］<span class="tag">&lt;/<span class="title">del</span>&gt;</span>キーを押す</code></pre>
 <script src='http://localhost:35732/livereload.js'></script>
 
   </body>

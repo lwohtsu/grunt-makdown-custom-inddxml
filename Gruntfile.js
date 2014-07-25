@@ -15,7 +15,8 @@ module.exports = function(grunt) {
                         return src + "<script src='http://localhost:35732/livereload.js'></script>\n";
                     },
                     markdownOptions: {
-                        gfm: true
+                        gfm: true,
+                        highlight: 'manual'
                     }
                 }
             }
@@ -27,7 +28,7 @@ module.exports = function(grunt) {
             },
             html: {
                 files: ['**/*.html', '!kousei-sjis/**/*.html'],
-                tasks: ['replace', 'utf8tosjis'],
+                tasks: [ ],
                 options: {
                     livereload: 35732
                 }
@@ -67,5 +68,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-text-replace');
  
-    grunt.registerTask("default", ["markdown", "replace", "utf8tosjis",  "watch"]);
+    grunt.registerTask("default", ["markdown",  "watch"]);
+    grunt.registerTask("kousei", ["markdown", "replace", "utf8tosjis", "watch"]);
 };

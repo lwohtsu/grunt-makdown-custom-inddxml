@@ -39,6 +39,10 @@ h6{margin-bottom: -1.5em;}
 
 td,th{border: 1px solid #DDD; background: #BDF}
 
+code.lang-bush{
+  background: #bbb;
+}
+
 pre{
 	font-family: Osaka-mono, monospace;
 }
@@ -53,7 +57,7 @@ code.lang-html{
   background: #DEF; 
 }
 code.lang-js{
-  background: #BBB;
+  background: #ddd;
 }
 code.lang-scss{
   background: #FDD;

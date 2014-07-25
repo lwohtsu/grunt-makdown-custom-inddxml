@@ -1,0 +1,67 @@
+<!DOCTYPE  html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>doc</title>
+	<script src="../cssjs/jquery-2.0.3.min.js"></script>
+	<script src="../cssjs/addimagename.js"></script>
+	<link rel="stylesheet" href="../cssjs/myrule.css"> 
+  </head>
+  <body>  
+    <h1 id="-markdown-">原稿段階での校正のためのMarkdownワークフロー（注：社内用マニュアルです）</h1>
+<p>原稿段階でなるべく手軽にJust Rightをかけるにはどうしたらいいかを考えた結果、現状のMarkdownワークフローに、SJISコンバートしたHTMLを吐き出す工程を追加してみました。</p>
+<p>設定さえすめば、mdファイルを保存すると自動的にプレビュー用のHTMLファイルと、Just Right用のShift JIS変換されたHTMLファイルが自動作成されます。</p>
+<p><img src="img/figure/figure.001.jpg?zoom=90" alt="image1">
+<img src="img/figure/figure.002.jpg?zoom=90" alt="image1"></p>
+<h1 id="-">インストール方法</h1>
+<h2 id="grunt-cli-">grunt-cliのインストール</h2>
+<p>最初に<a href="http://js.studio-kingdom.com/grunt/doc/getting_started">Grunt</a>というものをインストールします。</p>
+<p>Gruntはタスクランナーと呼ばれる簡単にいうと<strong>バッチ処理ツール</strong>で、「特定のフォルダ内のmdファイルが更新されたら、自動的にhtmlファイルを生成して、sjisにコンバート」といった連続処理を行えます。</p>
+<p>インストール方法は、Macの場合はターミナルからこれを入力。</p>
+<pre><code class="lang-bush">su<span class="operator"><span class="keyword">do</span> npm install -g grunt-cli</code></pre>
+<p>Windowsの場合は<a href="http://nodejs.org/download/">node.js</a>なるものをインストールしてから、sudo抜きでこれをコマンドプロンプトに入力。</p>
+<pre><code class="lang-bush"><span class="title">npm</span> install -g grunt-cli</code></pre>
+<h2 id="-">プロジェクトを作る</h2>
+<p>原稿データを保存するためのプロジェクトフォルダを作成します。なお、Macでは<strong>日本語フォルダ</strong>内にプロジェクトフォルダを作るとエラーになるので注意。</p>
+<p>Gruntのプロジェクトは普通コマンドで作成するのですが、ちょっとややこしいので<a href="https://github.com/lwohtsu/grunt-makdown-custom/archive/master.zip">ここ</a>からZIPファイルをダウンロードして解凍し、「cssjs」「node_modules」「Gruntfile.js」「mytemplate.html」の4つのフォルダ／ファイルをプロジェクト用フォルダにコピーしてください。</p>
+<p><img src="img/figure/figure.003.jpg?zoom=80" alt="image1"></p>
+<p>適当に章ごとに「chapter1」とかフォルダを作っておきます。</p>
+<p>画像はこんな感じで保存します。
+<img src="img/img09.png?zoom=70" alt="image1"></p>
+<h2 id="grunt-">Gruntを実行する</h2>
+<p>プロジェクト用フォルダをターミナルで開きます。ターミナルを起動してドックに表示させておき、ドラッグ＆ドロップすればOKです。</p>
+<p><img src="img/figure/figure.004.jpg" alt="image1"></p>
+<p>ターミナルが開くので<strong>「grunt」</strong>と入力してEnterを押します。</p>
+<p><img src="img/img01.png" alt="image1"></p>
+<p>「Watching...」と表示されたら成功です。後はmdファイルを適当なエディタで編集し、上書き保存するだけで自動的にhtmlファイルが生成されます。</p>
+<p><img src="img/img02.png" alt="image1"></p>
+<p><strong>mdファイルと同じフォルダ内</strong>にUTF-8版のhtmlファイルが生成されるので、それをブラウザで開いておけば、その後もmdファイル保存時に自動更新されるので、入力したMarkdownが間違っていないか、どういう仕上がりになるのかをチェックしながら原稿編集できます。</p>
+<p><img src="img/img10.png?zoom=80" alt="image1"></p>
+<p>うまく起動しない場合は、日本語フォルダではないか、他にターミナルのウィンドウでGruntが動いていないかをチェックしてください。動いていたら「Control＋C」で終了します。</p>
+<p>Gruntを複数実行しても本来は問題ないのですが、ブラウザを自動更新するためのこのプロジェクトの場合livereloadのポート番号を当たってしまうため、Gruntfile.jsを編集してプロジェクトごとに変える必要があります（その説明がちょっとややこしいので、同時に複数開かないほうがいいという話）。</p>
+<h2 id="just-right-">Just Rightで文字校する</h2>
+<p>SJIS変換を常に実行するとかなり重いので、普段はUTF-8のファイルだけ自動更新し、ターミナルから「grunt kousei」と入力したときだけSJIS変換ファイルを書き出すようにしました。</p>
+<p>すでにGruntを実行している場合は「Control+C」で停止し、<strong>「grunt kousei」</strong>と入力してEnterを押します。</p>
+<p><img src="img/img06.png" alt="image1"></p>
+<p>次のように「Running &quot;utf8sjis:dist&quot;……」と表示されるようになればOKです。
+<img src="img/img07.png" alt="image1"></p>
+<p>プロジェクトフォルダ直下の「kousei-sjis」フォルダにSjift-JIS変換済みのHTMLファイルが保存されます。
+<img src="img/img08.png?zoom=70" alt="image1"></p>
+<p>Just RightがLenovoのノートにしか入っていないので、校正したいときは「kousei-sjis」フォルダ内のhtmlファイルを共有フォルダにコピーします。</p>
+<p><img src="img/img03.png?zoom=70" alt="image1"></p>
+<p>Lenovoのノートに切り替えて、Just Rightを起動して［ファイル］メニューから［HTMLファイルを開く］を選択し、校正したいファイルを選択します（ウィンドウにドラッグ＆ドロップしてもOK）。</p>
+<p>「タグ以外の部分を読み込む」を選択して［OK］ボタンをクリックします。
+<img src="img/img04.png" alt="image1"></p>
+<p>後は［校正実行ボタン］をクリックして校正します。やり方はInDesignプラグイン版とだいたい一緒です。</p>
+<p><img src="img/img05.png" alt="image1"></p>
+<h1 id="markdown-">Markdownについて</h1>
+<p>Markdownはテキストに記号を入れて「md」という拡張子で保存したテキストファイルのことです。従来も「行頭に■■を入れたら大見出し」といった独自のルールを作って原稿を書くのが一般的でしたが、それと同じです。</p>
+<p>その都度ルールを決めるよりはMarkdownに従ったほうが、いろいろと便利なツールが使えて便利という話です。</p>
+<p>Markdownのルールについては<a href="../sample/sample.md">ここ</a>に参考ファイルを入れたので、それを参照してください。</p>
+<h1 id="-">プレビューのカスタマイズ</h1>
+<p>cssjsというフォルダ内にmyrule.cssというファイルがあり、これを編集することでプレビューの見た目を変えることができます。</p>
+<script src='http://localhost:35732/livereload.js'></script>
+
+  </body>
+</html>
