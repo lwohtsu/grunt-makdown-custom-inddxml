@@ -15,8 +15,7 @@ module.exports = function(grunt) {
                         return src + "<script src='http://localhost:35732/livereload.js'></script>\n";
                     },
                     markdownOptions: {
-                        gfm: true,
-                        highlight: 'manual'
+                        gfm: true
                     }
                 }
             }
@@ -27,17 +26,46 @@ module.exports = function(grunt) {
                 tasks: ['markdown'],
             },
             html: {
-                files: '**/*.html',
-                tasks: [],
+                files: ['**/*.html', '!kousei-sjis/**/*.html'],
+                tasks: ['replace', 'utf8tosjis'],
                 options: {
                     livereload: 35732
                 }
             }
+        },
+        replace:{
+            example: {
+                expand: true,
+                src: ['**/*.html', '!node_modules/**/*.html', '!kousei-sjis/**/*.html'],
+                dest: 'kousei-sjis/',
+                replacements: [{
+                    from:  '<meta charset="utf-8">',
+                    to: '<meta charset="sjis">'
+                },
+                {
+                    from: /<script.*<\/script>/g, 
+                    to:'<!---->'
+                },
+                {
+                    from: /<link.*>/g, 
+                    to:'<!---->'
+                }
+                ]
+            }
+        },
+        utf8tosjis:{
+            dist:{
+                expand: true,
+                src: ['kousei-sjis/**/*.html'],
+                overwrite: true,
+            }
         }
     });
  
+    grunt.loadNpmTasks('grunt-utf8tosjis');
     grunt.loadNpmTasks('grunt-markdown');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-text-replace');
  
-    grunt.registerTask("default", ["markdown", "watch"]);
+    grunt.registerTask("default", ["markdown", "replace", "utf8tosjis",  "watch"]);
 };

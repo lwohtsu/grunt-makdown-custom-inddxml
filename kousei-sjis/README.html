@@ -1,0 +1,32 @@
+<!DOCTYPE  html>
+<html>
+  <head>
+    <meta charset="sjis">
+    
+    <title>doc</title>
+	<!---->
+	<!---->
+	<!----> 
+  </head>
+  <body>  
+    <h1 id="how-to-custom-grunt-makdown">how to custom grunt-makdown</h1>
+<p>how to add SCSS support to grunt-markdown</p>
+<p>いずれ不要になるかもしれないですが、<a href="https://github.com/treasonx/grunt-markdown">grunt-markdown</a>に含まれるhightlight.jsの7.3.0ではSass（scss）をサポートしていないのでそれを足す方法と、ついでにcsファイルでUnity用のクラスを着色する方法のメモです。</p>
+<h2 id="1-set-visible-node_modules-folder">1.set visible node_modules folder</h2>
+<p>gurnt-markdownをインストールした後、不可視になっているnode_moduleフォルダーを可視化します。</p>
+<h2 id="2-add-scss-js">2.Add scss.js</h2>
+<p>以下のコマンドで最新のhighlight.jsを別のフォルダにインストールし、こちらのnode_modulesフォルダも可視化します。</p>
+<pre><code class="lang-bash">npm install highlight.js</code></pre>
+<p>node_modules -&gt; highlight.js -&gt; lib -&gt; languagesフォルダ内からscss.jsをコピーして、grunt-markdownフォルダー内のhighlight.js内に移動します。</p>
+<p><a href="https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c">https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c</a></p>
+<h2 id="3-edit-highlight-js">3.edit highlight.js</h2>
+<p>highlight.jsに「this.CSS_NUMBER_MODE」と「hljs.LANGUAGES[&#39;scss&#39;]」を追加します。</p>
+<p><a href="https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39">https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39</a></p>
+<h2 id="4-edit-cs-js">4.edit cs.js</h2>
+<p>csファイルでUnity用のクラスが着色されるようにするには、
+最初のkeywordsの部分を以下のように修正して、クラス名を列挙します。</p>
+<p><a href="https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea">https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea</a></p>
+<!---->
+
+  </body>
+</html>
