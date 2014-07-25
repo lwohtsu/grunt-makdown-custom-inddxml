@@ -27,3 +27,11 @@ csファイルでUnity用のクラスが着色されるようにするには、
 最初のkeywordsの部分を以下のように修正して、クラス名を列挙します。
 
 https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea
+
+
+## 5.grunt-utf8tosjisの調整
+UTF-8からSjift JISファイルへの変換時に、変換不可能な記号があると停止してしまうようです。「mode_modules/tasks/utf8tosjis.js」を開いて、次のようにコードを変更すると、変換不可能な記号を適当なものに置き換えて書き出してくれます。
+
+```
+var conv   = new Iconv('UTF-8', 'SHIFT-JIS//TRANSLIT//IGNORE');
+```
