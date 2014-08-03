@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             },
             html: {
                 files: ['**/*.html', '!kousei-sjis/**/*.html'],
-                tasks: [ ],
+                tasks: ['html2indtag'],
                 options: {
                     livereload: 35732
                 }
@@ -60,14 +60,27 @@ module.exports = function(grunt) {
                 src: ['kousei-sjis/**/*.html'],
                 overwrite: true,
             }
+        },
+        html2indtag: {
+            dist: {
+                expand: true,
+                src: ['**/*.html', '!node_modules/**/*.html', '!mytemplate.html', '!kousei-sjis/**/*.html'],
+                ext: '.xml'
+            },
+            options: {
+                //見出しが目立ちにくい場合は、trueにすると記号が入る
+                midashialert: true
+            }
         }
+
     });
  
     grunt.loadNpmTasks('grunt-utf8tosjis');
     grunt.loadNpmTasks('grunt-markdown');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-html2indtag');
  
-    grunt.registerTask("default", ["markdown",  "watch"]);
+    grunt.registerTask("default", ["markdown", "html2indtag",  "watch"]);
     grunt.registerTask("kousei", ["markdown", "replace", "utf8tosjis", "watch"]);
 };

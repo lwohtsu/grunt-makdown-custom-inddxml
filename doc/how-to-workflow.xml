@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><story xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><body>
+<h1><alert>h1</alert>原稿段階での校正のためのMarkdownワークフロー（注：社内用マニュアルです）</h1>
+<p>原稿段階でなるべく手軽にJust Rightをかけるにはどうしたらいいかを考えた結果、現状のMarkdownワークフローに、SJISコンバートしたHTMLを吐き出す工程を追加してみました。</p>
+<p>設定さえすめば、mdファイルを保存すると自動的にプレビュー用のHTMLファイルと、Just Right用のShift JIS変換されたHTMLファイルが自動作成されます。</p>
+<p><img href="file://img/figure/figure.001.jpg" data-zoom="90" alt="image1"/>
+<img href="file://img/figure/figure.002.jpg" data-zoom="90" /></p>
+<figcaption>image1</figcaption>
+<h1><alert>h1</alert>インストール方法</h1>
+<h2><alert>h2</alert>grunt-cliのインストール</h2>
+<p>最初に<a href="http://js.studio-kingdom.com/grunt/doc/getting_started">Grunt</a>というものをインストールします。</p>
+<p>Gruntはタスクランナーと呼ばれる簡単にいうと<strong>バッチ処理ツール</strong>で、「特定のフォルダ内のmdファイルが更新されたら、自動的にhtmlファイルを生成して、sjisにコンバート」といった連続処理を行えます。</p>
+<p>インストール方法は、Macの場合はターミナルからこれを入力。</p>
+<codelist data-type="bush">
+<pre><code>su<span class="operator"><span_keyword>do</span_keyword> npm install -g grunt-cli</code></pre>
+</codelist>
+<p>Windowsの場合は<a href="http://nodejs.org/download/">node.js</a>なるものをインストールしてから、sudo抜きでこれをコマンドプロンプトに入力。</p>
+<codelist data-type="bush">
+<pre><code><span_title>npm</span_title> install -g grunt-cli</code></pre>
+</codelist>
+<h2><alert>h2</alert>プロジェクトを作る</h2>
+<p>原稿データを保存するためのプロジェクトフォルダを作成します。なお、Macでは<strong>日本語フォルダ</strong>内にプロジェクトフォルダを作るとエラーになるので注意。日本語を含まないパスにフォルダを作成してください。</p>
+<p>Gruntのプロジェクトは普通コマンドで作成するのですが、ちょっとややこしいので<a href="https://github.com/lwohtsu/grunt-makdown-custom/archive/master.zip">ここ</a>からZIPファイルをダウンロードして解凍し、「cssjs」「node_modules」「Gruntfile.js」「mytemplate.html」の4つのフォルダ／ファイルをプロジェクト用フォルダにコピーしてください。</p>
+<figure><img href="file://img/figure/figure.003.jpg" data-zoom="80" /></figure>
+<figcaption>image1</figcaption>
+<p>適当に章ごとに「chapter1」とかフォルダを作っておきます。</p>
+<p>画像はこんな感じで保存しておくといいでしょう。<img href="file://img/img09.png" data-zoom="70" /></p>
+<figcaption>image1</figcaption>
+<h2><alert>h2</alert>Gruntを実行する</h2>
+<p>プロジェクト用フォルダをターミナルで開きます。ターミナルを起動してドックに表示させておき、ドラッグ＆ドロップすればOKです。</p>
+<figure><img href="file://img/figure/figure.004.jpg" /></figure>
+<figcaption>image1</figcaption>
+<p>ターミナルが開くので<strong>「grunt」</strong>と入力してEnterを押します。</p>
+<figure><img href="file://img/img01.png" /></figure>
+<figcaption>image1</figcaption>
+<p>「Watching...」と表示されたら成功です。後はmdファイルを適当なエディタで編集し、上書き保存するだけで自動的にhtmlファイルが生成されます。</p>
+<figure><img href="file://img/img02.png" /></figure>
+<figcaption>image1</figcaption>
+<p><strong>mdファイルと同じフォルダ内</strong>にUTF-8版のhtmlファイルが生成されるので、それをブラウザで開いておけば、その後もmdファイル保存時に自動更新されます。入力したMarkdownが間違っていないか、どういう仕上がりになるのかをチェックしながら原稿編集できて便利です。<img href="file://img/img11.png" data-zoom="70" /></p>
+<figcaption>image1</figcaption>
+<figure><img href="file://img/img10.png" data-zoom="80" /></figure>
+<figcaption>image1</figcaption>
+<p>現状はこれで生成されたHTMLファイルを、原稿＆指示ファイルとしてオペレータに送っているのですが、もう少し自動化できないのかというのが今後の課題。</p>
+<hr/>
+<p>うまく起動しない場合は、日本語フォルダではないか、他にターミナルのウィンドウでGruntが動いていないかをチェックしてください。動いていたら「Control＋C」で終了します。</p>
+<p>Gruntを複数実行しても本来は問題ないのですが、ブラウザを自動更新するためのこのプロジェクトの場合livereloadのポート番号を当たってしまうため、Gruntfile.jsを編集してプロジェクトごとに変える必要があります（その説明がちょっとややこしいので、同時に複数開かないほうがいいという話）。</p>
+<h2><alert>h2</alert>Just Rightで文字校する</h2>
+<p>SJIS変換を常に実行するとかなり重いので、普段はUTF-8のファイルだけ自動更新し、ターミナルから「grunt kousei」と入力したときだけSJIS変換ファイルを書き出すようにしました。</p>
+<p>すでにGruntを実行している場合は「Control+C」で停止し、<strong>「grunt kousei」</strong>と入力してEnterを押します。</p>
+<figure><img href="file://img/img06.png" /></figure>
+<figcaption>image1</figcaption>
+<p>次のように「Running &quot;utf8sjis:dist&quot;……」と表示されるようになればOKです。<img href="file://img/img07.png" /></p>
+<figcaption>image1</figcaption>
+<p>プロジェクトフォルダ直下の「kousei-sjis」フォルダにSjift-JIS変換済みのHTMLファイルが保存されます。<img href="file://img/img08.png" data-zoom="70" /></p>
+<figcaption>image1</figcaption>
+<p>Just RightがLenovoのノートにしか入っていないので、校正したいときは「kousei-sjis」フォルダ内のhtmlファイルを共有フォルダにコピーします。</p>
+<figure><img href="file://img/img03.png" data-zoom="70" /></figure>
+<figcaption>image1</figcaption>
+<p>Lenovoのノートに切り替えて、Just Rightを起動して［ファイル］メニューから［HTMLファイルを開く］を選択し、校正したいファイルを選択します（ウィンドウにドラッグ＆ドロップしてもOK）。</p>
+<p>「タグ以外の部分を読み込む」を選択して［OK］ボタンをクリックします。<img href="file://img/img04.png" /></p>
+<figcaption>image1</figcaption>
+<p>後は［校正実行ボタン］をクリックして校正します。やり方はInDesignプラグイン版とだいたい一緒です。</p>
+<figure><img href="file://img/img05.png" /></figure>
+<figcaption>image1</figcaption>
+<h1><alert>h1</alert>Markdownについて</h1>
+<p>Markdownはテキストに記号を入れて「md」という拡張子で保存したテキストファイルのことです。従来も「行頭に■■を入れたら大見出し」といった独自のルールを作って原稿を書くのが一般的でしたが、それと同じです。</p>
+<p>その都度ルールを決めるよりはMarkdownに従ったほうが、いろいろと便利なツールが使えて便利という話です。</p>
+<p>Markdownのルールについては<a href="../sample/sample.md">ここ</a>に参考ファイルを入れたので、それを参照してください。</p>
+<h1><alert>h1</alert>プレビューのカスタマイズ</h1>
+<p>cssjsというフォルダ内にmyrule.cssというファイルがあり、これを編集することでプレビューの見た目を変えることができます。</p>
+<script src='http://localhost:35732/livereload.js'></script>
+</body>
+</story>

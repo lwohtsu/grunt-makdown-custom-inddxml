@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><story xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><body>
+<h2><alert>h2</alert>sample test code</h2>
+<codelist data-type="scss">
+<pre><code><span_class>.sample-large</span_class> {</code></pre>
+<pre><code>  <span class="at_rule">@<span_keyword>extend</span_keyword><span_preprocessor> .sample-base</span_preprocessor>;</span></code></pre>
+<pre><code>}</code></pre>
+</codelist>
+<codelist data-type="cs">
+<pre><code>[<span_class>AddComponentMenu</span_class>(<span_string>"Utage/ADV/UiMessageWindow"</span_string>)]</code></pre>
+<pre><code><span_keyword>public</span_keyword> <span_keyword>class</span_keyword> <span_class>AdvUguiMessageWindow</span_class> : <span_class>MonoBehaviour</span_class></code></pre>
+<pre><code>{</code></pre>
+<pre><code>  <span class="comment"><span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>ADVエンジン<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></span></code></pre>
+<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
+<pre><code>  <span_class>AdvEngine</span_class> engine;</code></pre>
+<pre><code></code></pre>
+<pre><code>  <span class="comment"><span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>本文テキスト<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></span></code></pre>
+<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
+<pre><code>  Text text;</code></pre>
+<pre><code></code></pre>
+<pre><code>  <span class="comment"><span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>名前表示テキスト<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></span></code></pre>
+<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
+<pre><code>  Text nameText;</code></pre>
+<pre><code></code></pre>
+<pre><code>  <span class="comment"><span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>ウインドウのルート<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></span></code></pre>
+<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
+<pre><code>  GameObject rootChildren;</code></pre>
+<pre><code>}</code></pre>
+</codelist>
+<script src='http://localhost:35732/livereload.js'></script>
+</body>
+</story>

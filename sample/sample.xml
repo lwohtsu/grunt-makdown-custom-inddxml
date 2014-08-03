@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><story xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><body>
+<h1><alert>h1</alert>Markdown簡易チートシート</h1>
+<h1><alert>h1</alert>見出し1</h1>
+<h2><alert>h2</alert>見出し2</h2>
+<h3><alert>h3</alert>見出し3</h3>
+<h4><alert>h4</alert>見出し4</h4>
+<h5><alert>h5</alert>見出し5</h5>
+<h6><alert>h6</alert>見出し6</h6>
+<p>
+</p>
+<p>改行は1ライン空ける。</p>
+<p>通常の改行を複数空けても1つにまとめられてしまうので、1行空けたいときは次のように<code>&lt;br&gt;</code>としておくといいみたい。</p>
+<p>
+</p>
+<ul>
+<li>箇条書き</li>
+<li>箇条書き</li>
+<li>箇条書き</li>
+</ul>
+<p>文章中の<strong>強調</strong>は<code>**</code>で囲みます。数式やタグなどは<code>` </code>で囲まないとそのまま出力されるので注意。</p>
+<codelist data-type="css">
+<pre><code><span_class>.sample</span_class><span class="rules">{</code></pre>
+<pre><code>    <span_comment>/*ソースコードは```で囲む。```の後にcssやjsを付けると色分け可能*/</span_comment></code></pre>
+<pre><code><span_rule>}</span_rule></span></code></pre>
+</codelist>
+<p>リンクは</p>
+<codelist data-type="<pre><code><span class="link_label">[文字列]</span>(<span class="link_url">URL</span>)</code></pre>">
+<pre><code><span_link_label>[文字列]</span_link_label>(<span_link_url>URL</span_link_url>)</code></pre>
+</codelist>
+<p>画像は</p>
+<codelist data-type="<pre><code>!<span class="link_label">[キャプション文字列]</span>(<span class="link_url">img/ファイル名.png</span>)</code></pre>">
+<pre><code>!<span_link_label>[キャプション文字列]</span_link_label>(<span_link_url>img/ファイル名.png</span_link_url>)</code></pre>
+</codelist>
+<p>区切り線は</p>
+<codelist data-type="<pre><code><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>">
+<pre><code><span_literal>-</span_literal><span_literal>-</span_literal><span_literal>-</span_literal></code></pre>
+</codelist>
+<p>なお、区切り線の「<code>---</code>」は、直前に文字があると見出しという意味で使われてしまうので、上1行空けるようにしてください。</p>
+<h1><alert>h1</alert>独自拡張</h1>
+<h2><alert>h2</alert>画像のズームとトリミング</h2>
+<codelist data-type="<pre><code>!<span class="link_label">[キャプション文字列]</span>(<span class="link_url">img/ファイル名.png?zoom=40?clip=0+0+200+200</span>)</code></pre>">
+<pre><code>!<span_link_label>[キャプション文字列]</span_link_label>(<span_link_url>img/ファイル名.png?zoom=40?clip=0+0+200+200</span_link_url>)</code></pre>
+</codelist>
+<h2><alert>h2</alert>図中文字</h2>
+<p>エディタのスニペット機能などで自動入力できるようにしておくと便利。</p>
+<codelist data-type="<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"zuchuu"</span>&gt;</span>thisをクリック<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>">
+<pre><code><span class="tag">&lt;<span_title>div</span_title> <span_attribute>class</span_attribute>=<span_value>"zuchuu"</span_value>&gt;</span>thisをクリック<span class="tag">&lt;/<span_title>div</span_title>&gt;</span></code></pre>
+</codelist>
+<h2><alert>h2</alert>編集コメントを入れたい</h2>
+<codelist data-type="<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"hen"</span>&gt;</span>編：コメント<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>">
+<pre><code><span class="tag">&lt;<span_title>div</span_title> <span_attribute>class</span_attribute>=<span_value>"hen"</span_value>&gt;</span>編：コメント<span class="tag">&lt;/<span_title>div</span_title>&gt;</span></code></pre>
+</codelist>
+<h2><alert>h2</alert>キーフォントにしたい</h2>
+<codelist data-type="<pre><code><span class="tag">&lt;<span class="title">del</span>&gt;</span>［Esc］<span class="tag">&lt;/<span class="title">del</span>&gt;</span>キーを押す</code></pre>">
+<pre><code><span class="tag">&lt;<span_title>del</span_title>&gt;</span>［Esc］<span class="tag">&lt;/<span_title>del</span_title>&gt;</span>キーを押す</code></pre>
+</codelist>
+<script src='http://localhost:35732/livereload.js'></script>
+</body>
+</story>
