@@ -37,7 +37,8 @@ h5::before{
 }
 h6{margin-bottom: -1.5em;}
 
-td,th{border: 1px solid #DDD; background: #BDF}
+th{border: 1px solid #DDD; background: #BDF}
+td{border: 1px solid #DDD; background: #DEF}
 
 code.lang-bush{
   background: #bbb;
