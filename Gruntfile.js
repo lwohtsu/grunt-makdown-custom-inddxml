@@ -81,6 +81,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-html2indtag');
  
-    grunt.registerTask("default", ["markdown", "html2indtag",  "watch"]);
-    grunt.registerTask("kousei", ["markdown", "replace", "utf8tosjis", "watch"]);
+    grunt.registerTask("default", ["markdown", "html2indtag", "watch"]);
+    grunt.registerTask("kousei", ["markdown", "replace", "utf8tosjis"/*, "watch"*/]);
+    grunt.registerTask("xml", ["markdown", "html2indtag"]);
 };
