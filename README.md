@@ -24,7 +24,7 @@ http://www.backlog.jp/blog/2013/10/markdown-preview.html
 重いのでwatchによる自動更新はしません。
 
 ###grunt xml
-HTMLをInDesignに読み込み可能なXMLに変換します。重いのでwatchによる自動更新はしません。InDesignに読み込む直前に実行してください。
+HTMLをInDesignで読み込み可能なXMLに変換します。重いのでwatchによる自動更新はしません。InDesignに読み込む直前に実行してください。
 
 ##XML用スクリプトについて
 InDesignにインストールして使う補助用のスクリプトです。XMLをInDesignに読み込んだ後、「画像をまとめてリサイズ」「テーブルタグをInDesignの表へ変換」「preタグやcodeタグをInDesignの表へ変換」という処理を行います。
@@ -41,6 +41,8 @@ tableタグで囲まれた範囲を表に変換します。genXMLCode2Table.jsx�
 
 ###resizeXMLImage.jsx
 XMLから読み込んだ直後の画像は原寸サイズで非常に大きいので、画像をまとめてリサイズします。また、独自拡張のトリミングやリサイズ指定をしていた場合は、それを反映させます。
+
+詳しい使い方はhttp://arinoth.hatenablog.com/entry/2014/10/13/065953
 
 ```
 独自拡張のリサイズ・トリミング指定
