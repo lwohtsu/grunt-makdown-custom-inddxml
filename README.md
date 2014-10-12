@@ -9,6 +9,7 @@ CS4でしかテストしていませんが、他でも動きそうです。
 grunt本来のインストール方法と違っているのですが、grunt-cliのグローバルインストールを済ませた後、このプロジェクトをダウンロードして解凍します。できあがったフォルダ内にMarkdownの原稿を入れて、コマンドラインから「grunt」「grunt xml」「grunt sjis」のいずれかを実行します。
 
 あまりよくわからないという人は以下を参照してください。
+
 https://github.com/lwohtsu/grunt-makdown-custom/blob/master/doc/how-to-workflow.md
 
 ##コマンド
