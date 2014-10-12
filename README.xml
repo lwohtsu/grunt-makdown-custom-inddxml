@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><story xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><body>
 <h1><alert>h1</alert>how to custom grunt-makdown</h1>
 <p>how to add SCSS support to grunt-markdown</p>
-<p>いずれ不要になるかもしれないですが、<a href="https://github.com/treasonx/grunt-markdown">grunt-markdown</a>に含まれるhightlight.jsの7.3.0ではSass（scss）をサポートしていないのでそれを足す方法と、ついでにcsファイルでUnity用のクラスを着色する方法のメモです。</p>
+<p>いずれ不要になるかもしれないですが、grunt-markdown（https://github.com/treasonx/grunt-markdown）に含まれるhightlight.jsの7.3.0ではSass（scss）をサポートしていないのでそれを足す方法と、ついでにcsファイルでUnity用のクラスを着色する方法のメモです。</p>
 <h2><alert>h2</alert>1.set visible node_modules folder</h2>
 <p>gurnt-markdownをインストールした後、不可視になっているnode_moduleフォルダーを可視化します。</p>
 <h2><alert>h2</alert>2.Add scss.js</h2>
 <p>以下のコマンドで最新のhighlight.jsを別のフォルダにインストールし、こちらのnode_modulesフォルダも可視化します。</p>
-<codelist data-type="bash">
+<codelist>
 <pre><code>npm install highlight.js</code></pre>
 </codelist>
 <p>node_modules -&gt; highlight.js -&gt; lib -&gt; languagesフォルダ内からscss.jsをコピーして、grunt-markdownフォルダー内のhighlight.js内に移動します。</p>
-<p><a href="https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c">https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c</a></p>
+<p>https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c（https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c）</p>
 <h2><alert>h2</alert>3.edit highlight.js</h2>
 <p>highlight.jsに「this.CSS_NUMBER_MODE」と「hljs.LANGUAGES[&#39;scss&#39;]」を追加します。</p>
-<p><a href="https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39">https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39</a></p>
+<p>https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39（https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39）</p>
 <h2><alert>h2</alert>4.edit cs.js</h2>
 <p>csファイルでUnity用のクラスが着色されるようにするには、最初のkeywordsの部分を以下のように修正して、クラス名を列挙します。</p>
-<p><a href="https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea">https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea</a></p>
+<p>https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea（https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea）</p>
 <h2><alert>h2</alert>5.grunt-utf8tosjisの調整</h2>
 <p>UTF-8からSjift JISファイルへの変換時に、変換不可能な記号があると停止してしまうようです。「mode_modules/tasks/utf8tosjis.js」を開いて、次のようにコードを変更すると、変換不可能な記号を適当なものに置き換えて書き出してくれます。</p>
-<codelist data-type="<pre><code>var conv   = <span class="keyword">new</span> Iconv(<span class="attribute">'UTF</span>-<span class="number">8</span>', <span class="attribute">'SHIFT</span>-JIS//TRANSLIT//IGNORE');</code></pre>">
+<codelist>
 <pre><code>var conv   = <span_keyword>new</span_keyword> Iconv(<span_attribute>'UTF</span_attribute>-<span_number>8</span_number>', <span_attribute>'SHIFT</span_attribute>-JIS//TRANSLIT//IGNORE');</code></pre>
 </codelist>
 <script src='http://localhost:35732/livereload.js'></script>

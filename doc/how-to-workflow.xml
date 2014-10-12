@@ -7,19 +7,19 @@
 <figcaption>image1</figcaption>
 <h1><alert>h1</alert>インストール方法</h1>
 <h2><alert>h2</alert>grunt-cliのインストール</h2>
-<p>最初に<a href="http://js.studio-kingdom.com/grunt/doc/getting_started">Grunt</a>というものをインストールします。</p>
+<p>最初にGrunt（http://js.studio-kingdom.com/grunt/doc/getting_started）というものをインストールします。</p>
 <p>Gruntはタスクランナーと呼ばれる簡単にいうと<strong>バッチ処理ツール</strong>で、「特定のフォルダ内のmdファイルが更新されたら、自動的にhtmlファイルを生成して、sjisにコンバート」といった連続処理を行えます。</p>
 <p>インストール方法は、Macの場合はターミナルからこれを入力。</p>
-<codelist data-type="bush">
-<pre><code>su<span class="operator"><span_keyword>do</span_keyword> npm install -g grunt-cli</code></pre>
+<codelist>
+<pre><code>su<span_keyword>do</span_keyword> npm install -g grunt-cli</code></pre>
 </codelist>
-<p>Windowsの場合は<a href="http://nodejs.org/download/">node.js</a>なるものをインストールしてから、sudo抜きでこれをコマンドプロンプトに入力。</p>
-<codelist data-type="bush">
+<p>Windowsの場合はnode.js（http://nodejs.org/download/）なるものをインストールしてから、sudo抜きでこれをコマンドプロンプトに入力。</p>
+<codelist>
 <pre><code><span_title>npm</span_title> install -g grunt-cli</code></pre>
 </codelist>
 <h2><alert>h2</alert>プロジェクトを作る</h2>
 <p>原稿データを保存するためのプロジェクトフォルダを作成します。なお、Macでは<strong>日本語フォルダ</strong>内にプロジェクトフォルダを作るとエラーになるので注意。日本語を含まないパスにフォルダを作成してください。</p>
-<p>Gruntのプロジェクトは普通コマンドで作成するのですが、ちょっとややこしいので<a href="https://github.com/lwohtsu/grunt-makdown-custom/archive/master.zip">ここ</a>からZIPファイルをダウンロードして解凍し、「cssjs」「node_modules」「Gruntfile.js」「mytemplate.html」の4つのフォルダ／ファイルをプロジェクト用フォルダにコピーしてください。</p>
+<p>Gruntのプロジェクトは普通コマンドで作成するのですが、ちょっとややこしいのでここ（https://github.com/lwohtsu/grunt-makdown-custom/archive/master.zip）からZIPファイルをダウンロードして解凍し、「cssjs」「node_modules」「Gruntfile.js」「mytemplate.html」の4つのフォルダ／ファイルをプロジェクト用フォルダにコピーしてください。</p>
 <figure><img href="file://img/figure/figure.003.jpg" data-zoom="80" /></figure>
 <figcaption>image1</figcaption>
 <p>適当に章ごとに「chapter1」とかフォルダを作っておきます。</p>
@@ -64,7 +64,7 @@
 <h1><alert>h1</alert>Markdownについて</h1>
 <p>Markdownはテキストに記号を入れて「md」という拡張子で保存したテキストファイルのことです。従来も「行頭に■■を入れたら大見出し」といった独自のルールを作って原稿を書くのが一般的でしたが、それと同じです。</p>
 <p>その都度ルールを決めるよりはMarkdownに従ったほうが、いろいろと便利なツールが使えて便利という話です。</p>
-<p>Markdownのルールについては<a href="../sample/sample.md">ここ</a>に参考ファイルを入れたので、それを参照してください。</p>
+<p>Markdownのルールについてはここ（../sample/sample.md）に参考ファイルを入れたので、それを参照してください。</p>
 <h1><alert>h1</alert>プレビューのカスタマイズ</h1>
 <p>cssjsというフォルダ内にmyrule.cssというファイルがあり、これを編集することでプレビューの見た目を変えることができます。</p>
 <script src='http://localhost:35732/livereload.js'></script>

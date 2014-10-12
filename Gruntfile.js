@@ -28,11 +28,11 @@ module.exports = function(grunt) {
             },
             html: {
                 files: ['**/*.html', '!kousei-sjis/**/*.html'],
-                tasks: ['html2indtag'],
+                tasks: [ ],
                 options: {
                     livereload: 35732
                 }
-            }
+            },
         },
         replace:{
             example: {
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
         utf8tosjis:{
             dist:{
                 expand: true,
-                src: ['kousei-sjis/**/*.html'],
+                src: ['kousei-sjis/**/*.html', '!mytemplate.html'],
                 overwrite: true,
             }
         },
@@ -72,7 +72,6 @@ module.exports = function(grunt) {
                 midashialert: true
             }
         }
-
     });
  
     grunt.loadNpmTasks('grunt-utf8tosjis');

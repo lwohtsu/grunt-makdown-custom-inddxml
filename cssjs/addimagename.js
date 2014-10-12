@@ -9,8 +9,7 @@ $(function(){
 			t.before('<p>（'+ s.substring(0, s.lastIndexOf('?')) + '）</p>');
 			//クエリ分割
 			var q = s.substr(s.indexOf('?')+1).split('&');
-			q.sort();
-			console.log(q);
+			q.sort();	//clip→zoomの文字順にする
 			//先に拡大縮小
 			var z = 1;
 			for(var i=q.length-1; i>=0; i--){

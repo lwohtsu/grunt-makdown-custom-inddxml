@@ -1,7 +1,13 @@
+span.araki{background:#00F; padding:0.25em;color:white;border-radius:16px;}
+span.shirokane{background:#0B8; padding:0.25em;color:white;border-radius:16px;}
+span.shibuya{background:#F0D; padding:0.25em;color:white;border-radius:16px;}
+
+
 div.hen{background: #ff0; color:#D00; font-size: 0.7em;}
 img {
 	display:block;
 	border: solid 1px #444;
+  max-width:600px;
 }
 blockquote{
   font-weight: bold;
@@ -30,17 +36,25 @@ h2{margin-top: 2em; border-left:3px solid #F08;
 padding-left: 0.5em;}
 h3{margin-top: 2em;}
 h4{margin-top: 4em; border-top: 1px solid #F08;}
+h5{
+  font-size: 1em;
+  margin-bottom: 0;
+}
 h5::before{
   content: '●';
   color:#F08;
   font-size: 0.7em;
 }
-h6{margin-bottom: -1.5em;}
+h6{margin-bottom: 0em;
+  background: #DDD;
+  border-radius: 4px 4px 0 0; 
+  width: 20em;
+}
 
 th{border: 1px solid #DDD; background: #BDF}
 td{border: 1px solid #DDD; background: #DEF}
 
-code.lang-bush{
+code.lang-bash{
   background: #bbb;
 }
 
@@ -81,10 +95,15 @@ del{
 em{
   background: #F88;
 }
+div.hint{
+  border:solid 1px #888;
+  font-size: 0.8em;
+  width:20em;
+}
 
 .caption{
 	color: #444;
-	font-size: 0.8em;
+	font-size: 0.7em;
 	text-indent: 0;
 	margin-bottom: 1em;
 }
@@ -103,7 +122,7 @@ em{
       pre .template_comment,
       pre .diff .header,
       pre .javadoc {
-        color: #4b8; /*#998;*/
+        color: #4b8; /*#998;*//*r68 g187 b136*/
         font-style: italic
       }
       pre .keyword,
@@ -114,26 +133,26 @@ em{
       pre .subst,
       pre .request,
       pre .status {
-        color: #333;
+        color: #333;  /*r51 g51 b51*/
         font-weight: bold
       }
       pre .keyword{
-      	color: #00F;
+      	color: #00F; /*r0 g0 b255*/
       }
       pre .number,
       pre .hexcolor,
       pre .ruby .constant {
-        color: #A09;
+        color: #A09;  /*r170 g0 b153*/
       }
       pre .string,
       pre .tag .value,
       pre .phpdoc,
       pre .tex .formula {
-        color: #d14
+        color: #d14;  /*r221 g17 b68*/
       }
       pre .title,
       pre .id {
-        color: #900;
+        color: #900;  /*r153 g0 b0*/
         font-weight: bold
       }
       pre .javascript .title,
@@ -146,26 +165,26 @@ em{
       pre .haskell .type,
       pre .vhdl .literal,
       pre .tex .command {
-        color: #458;
+        color: #458;  /*r68 g85 b136*/
         font-weight: bold
       }
       pre .tag,
       pre .tag .title,
       pre .rules .property,
       pre .django .tag .keyword {
-        color: #000080;
+        color: #000080; /*0 0 128*/
         font-weight: normal
       }
       pre .attribute,
       pre .variable,
       pre .lisp .body {
-        color: #008080
+        color: #008080;  /*0 128 128*/
       }
       pre .regexp {
-        color: #009926
+        color: #009926; /*r0 g153 b38*/
       }
       pre .class {
-        color: #458;
+        color: #458;  /**r68 g85 b136*/
         font-weight: bold
       }
       pre .symbol,
@@ -173,19 +192,19 @@ em{
       pre .lisp .keyword,
       pre .tex .special,
       pre .prompt {
-        color: #990073
+        color: #990073;  /*r153 g0 b115*/
       }
       pre .built_in,
       pre .lisp .title,
       pre .clojure .built_in {
-        color: #0086b3
+        color: #0086b3; /*r0 g134 b179*/
       }
       pre .preprocessor,
       pre .pi,
       pre .doctype,
       pre .shebang,
       pre .cdata {
-        color: #999;
+        color: #999;  /*r153 g153 b153*/
         font-weight: bold
       }
       pre .deletion {
@@ -198,5 +217,15 @@ em{
         background: #0086b3
       }
       pre .chunk {
-        color: #aaa
+        color: #aaa; /*r170 g170 b170*/
+      }
+
+      pre .header{
+        color: #00F;
+      }
+      pre .bullet{
+        color:#d14;
+      }
+      pre .horizontal_rule{
+        color: #4b8;
       }
