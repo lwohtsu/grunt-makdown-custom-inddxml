@@ -1,4 +1,4 @@
-how to custom grunt-markdown
+grunt-markdown-custom-inddxml
 ====================
 
 もともとはgrunt-markdownをちょっと変更する目的で始めましたが、
