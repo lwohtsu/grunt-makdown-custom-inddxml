@@ -93,4 +93,19 @@ var conv   = new Iconv('UTF-8', 'SHIFT-JIS//TRANSLIT//IGNORE');
 ```
 
 ## swiftにも対応
-古いhighlight.jsに「this.PHRASAL_WORDS_MODE」「TITLE_MODE」「IDENT_RE」を移植？　テスト中
+古いhighlight.jsに「this.PHRASAL_WORDS_MODE」「TITLE_MODE」「IDENT_RE」を移植
+reStr関数を追加し、langRe関数を次のように書き換える必要がある。
+```
+    function reStr(re) {
+        return (re && re.source) || re;
+    }
+
+    function langRe(value, global) {
+      return RegExp(
+        reStr(value),
+        'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
+      );
+    }
+  ```
+これをしないと「Cannot supply flags when constructing one RegExp from another」というエラーが出る。
+
