@@ -64,7 +64,7 @@ highlight.js同梱のstylesフォルダからcssを読み込むようテンプ�
 -### edit cs.js
 -csファイルでUnity用のクラスが着色されるようにするには、
 -最初のkeywordsの部分を以下のように修正して、クラス名を列挙します。
--
+
 -https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea
 
 
