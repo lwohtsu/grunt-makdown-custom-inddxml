@@ -93,4 +93,4 @@ var conv   = new Iconv('UTF-8', 'SHIFT-JIS//TRANSLIT//IGNORE');
 ```
 
 ## swiftにも対応
-古いhighlight.jsに「this.PHRASAL_WORDS_MODE」「TITLE_MODE」を移植。
+古いhighlight.jsに「this.PHRASAL_WORDS_MODE」「TITLE_MODE」「IDENT_RE」を移植？　テスト中
