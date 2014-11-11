@@ -7,16 +7,17 @@
 	<script src="../cssjs/jquery-2.0.3.min.js"></script>
 	<script src="../cssjs/addimagename.js"></script>
 	<link rel="stylesheet" href="../cssjs/myrule.css"> 
+  <link rel="stylesheet" href="../cssjs/hljsstyles/xcode.css"> 
   </head>
   <body>  
-    <h1 id="how-to-custom-grunt-markdown">how to custom grunt-markdown</h1>
+    <h1 id="grunt-markdown-custom-inddxml">grunt-markdown-custom-inddxml</h1>
 <p>もともとはgrunt-markdownをちょっと変更する目的で始めましたが、
 Just Right用のSJIS変換や、InDesign読み込み用のXML変換と分割しにくくなったので、統合しました。
 CS4でしかテストしていませんが、他でも動きそうです。</p>
 <h2 id="-">利用方法</h2>
 <p>grunt本来のインストール方法と違っているのですが、grunt-cliのグローバルインストールを済ませた後、このプロジェクトをダウンロードして解凍します。できあがったフォルダ内にMarkdownの原稿を入れて、コマンドラインから「grunt」「grunt xml」「grunt sjis」のいずれかを実行します。</p>
-<p>あまりよくわからないという人は以下を参照してください。
-<a href="https://github.com/lwohtsu/grunt-makdown-custom/blob/master/doc/how-to-workflow.md">https://github.com/lwohtsu/grunt-makdown-custom/blob/master/doc/how-to-workflow.md</a></p>
+<p>あまりよくわからないという人は以下を参照してください。</p>
+<p><a href="https://github.com/lwohtsu/grunt-makdown-custom/blob/master/doc/how-to-workflow.md">https://github.com/lwohtsu/grunt-makdown-custom/blob/master/doc/how-to-workflow.md</a></p>
 <h2 id="-">コマンド</h2>
 <h3 id="grunt">grunt</h3>
 <p>デフォルトのgruntを実行すると、MarkdownをHTML変換し、watchによって自動更新します。普段の原稿編集用に使うモードです。Shift-JIS変換とXML変換は重いので最初の一回だけ行い、watchによる更新時はHTML変換のみ行います。</p>
@@ -26,7 +27,7 @@ CS4でしかテストしていませんが、他でも動きそうです。</p>
 <p>文字校用のJust RightがシフトJISのHTMLしか校正してくれないので、SJIS変換したHTMLを生成します。「kousei-sjis」というフォルダを作成し、その中にHTMLファイルを保存します。
 重いのでwatchによる自動更新はしません。</p>
 <h3 id="grunt-xml">grunt xml</h3>
-<p>HTMLをInDesignに読み込み可能なXMLに変換します。重いのでwatchによる自動更新はしません。InDesignに読み込む直前に実行してください。</p>
+<p>HTMLをInDesignで読み込み可能なXMLに変換します。重いのでwatchによる自動更新はしません。InDesignに読み込む直前に実行してください。</p>
 <h2 id="xml-">XML用スクリプトについて</h2>
 <p>InDesignにインストールして使う補助用のスクリプトです。XMLをInDesignに読み込んだ後、「画像をまとめてリサイズ」「テーブルタグをInDesignの表へ変換」「preタグやcodeタグをInDesignの表へ変換」という処理を行います。
 スクリプトパネルを右クリックすると保存場所を開けるので、そこにjsxファイルをコピーしておきます。</p>
@@ -39,8 +40,9 @@ CS4でしかテストしていませんが、他でも動きそうです。</p>
 <h3 id="resizexmlimage-jsx">resizeXMLImage.jsx</h3>
 <p>XMLから読み込んだ直後の画像は原寸サイズで非常に大きいので、画像をまとめてリサイズします。また、独自拡張のトリミングやリサイズ指定をしていた場合は、それを反映させます。</p>
 <pre><code>独自拡張のリサイズ・トリミング指定
-!<span class="link_label">[キャプションなし]</span>(<span class="link_url">img/c3d-c2-01-01.png?zoom=50&amp;clip=0+0+1154+450</span>)</code></pre>
+![<span class="hljs-link_label">キャプションなし</span>](<span class="hljs-link_url">img/c3d-c2-01-01.png?zoom=50&amp;clip=0+0+1154+450</span>)</code></pre>
 <p>genXMLCode2TableやgenXMLTableはその時点での親フレームの幅一杯の表に変換しますが、テキストがあふれ状態だと幅がすごく小さくなってしまいます。先にresizeXMLImageで画像サイズを調整してあふれ状態を解消してから、表への変換を行うことをおすすめします。</p>
+<p>詳しい使い方は<a href="http://arinoth.hatenablog.com/entry/2014/10/13/065953">http://arinoth.hatenablog.com/entry/2014/10/13/065953</a></p>
 <hr>
 <h2 id="grunt-markdown-">grunt-markdownの変更部分（古いドキュメント）</h2>
 <p>how to add SCSS support to grunt-markdown</p>
@@ -61,7 +63,21 @@ CS4でしかテストしていませんが、他でも動きそうです。</p>
 <p><a href="https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea">https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea</a></p>
 <h3 id="5-grunt-utf8tosjis-">5.grunt-utf8tosjisの調整</h3>
 <p>UTF-8からSjift JISファイルへの変換時に、変換不可能な記号があると停止してしまうようです。「mode_modules/tasks/utf8tosjis.js」を開いて、次のようにコードを変更すると、変換不可能な記号を適当なものに置き換えて書き出してくれます。</p>
-<pre><code>var conv   = <span class="keyword">new</span> Iconv(<span class="attribute">'UTF</span>-<span class="number">8</span>', <span class="attribute">'SHIFT</span>-JIS//TRANSLIT//IGNORE');</code></pre>
+<pre><code><span class="hljs-keyword">var</span> conv   = <span class="hljs-keyword">new</span> <span class="hljs-type">Iconv</span>(<span class="hljs-symbol">'UTF</span>-<span class="hljs-number">8</span>', <span class="hljs-symbol">'SHIFT</span>-<span class="hljs-type">JIS</span><span class="hljs-comment">//TRANSLIT//IGNORE');</span></code></pre>
+<h2 id="swift-">swiftにも対応</h2>
+<p>古いhighlight.jsに「this.PHRASAL_WORDS_MODE」「TITLE_MODE」「IDENT_RE」を移植
+reStr関数を追加し、langRe関数を次のように書き換える必要がある。</p>
+<pre><code>    <span class="hljs-function">function <span class="hljs-title">reStr</span><span class="hljs-params">(re)</span> </span>{
+        <span class="hljs-keyword">return</span> (re &amp;&amp; re.source) || re;
+    }
+
+    <span class="hljs-function">function <span class="hljs-title">langRe</span><span class="hljs-params">(value, global)</span> </span>{
+      <span class="hljs-function"><span class="hljs-keyword">return</span> <span class="hljs-title">RegExp</span><span class="hljs-params">(
+        reStr(value)</span>,
+        'm' + <span class="hljs-params">(language.case_insensitive ? <span class="hljs-string">'i'</span> : <span class="hljs-string">''</span>)</span> + <span class="hljs-params">(global ? <span class="hljs-string">'g'</span> : <span class="hljs-string">''</span>)</span>
+      )</span>;
+    }</code></pre>
+<p>これをしないと「Cannot supply flags when constructing one RegExp from another」というエラーが出る。</p>
 <script src='http://localhost:35732/livereload.js'></script>
 
   </body>

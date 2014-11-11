@@ -7,6 +7,7 @@
 	<script src="../cssjs/jquery-2.0.3.min.js"></script>
 	<script src="../cssjs/addimagename.js"></script>
 	<link rel="stylesheet" href="../cssjs/myrule.css"> 
+  <link rel="stylesheet" href="../cssjs/hljsstyles/xcode.css"> 
   </head>
   <body>  
     <h1 id="markdown-">Markdown簡易チートシート</h1>
@@ -27,26 +28,26 @@
 </ul>
 <p>文章中の<strong>強調</strong>は<code>**</code>で囲みます。
 数式やタグなどは<code>` </code>で囲まないとそのまま出力されるので注意。</p>
-<pre><code class="lang-css"><span class="class">.sample</span><span class="rules">{
-    <span class="comment">/*ソースコードは```で囲む。```の後にcssやjsを付けると色分け可能*/</span>
-<span class="rule">}</span></span></code></pre>
+<pre><code class="lang-css"><span class="hljs-class">.sample</span><span class="hljs-rules">{
+    <span class="hljs-comment">/*ソースコードは```で囲む。```の後にcssやjsを付けると色分け可能*/</span>
+<span class="hljs-rule">}</span></span></code></pre>
 <p>リンクは</p>
-<pre><code><span class="link_label">[文字列]</span>(<span class="link_url">URL</span>)</code></pre>
+<pre><code>[<span class="hljs-link_label">文字列</span>](<span class="hljs-link_url">URL</span>)</code></pre>
 <p>画像は</p>
-<pre><code>!<span class="link_label">[キャプション文字列]</span>(<span class="link_url">img/ファイル名.png</span>)</code></pre>
+<pre><code>![<span class="hljs-link_label">キャプション文字列</span>](<span class="hljs-link_url">img/ファイル名.png</span>)</code></pre>
 <p>区切り線は</p>
-<pre><code><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></code></pre>
+<pre><code><span class="hljs-comment">---</span></code></pre>
 <p>なお、区切り線の「<code>---</code>」は、直前に文字があると見出しという意味で使われてしまうので、上1行空けるようにしてください。</p>
 <h1 id="-">独自拡張</h1>
 <h2 id="-">画像のズームとトリミング</h2>
-<pre><code>!<span class="link_label">[キャプション文字列]</span>(<span class="link_url">img/ファイル名.png?zoom=40?clip=0+0+200+200</span>)</code></pre>
+<pre><code>![<span class="hljs-link_label">キャプション文字列</span>](<span class="hljs-link_url">img/ファイル名.png?zoom=40?clip=0+0+200+200</span>)</code></pre>
 <h2 id="-">図中文字</h2>
 <p>エディタのスニペット機能などで自動入力できるようにしておくと便利。</p>
-<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"zuchuu"</span>&gt;</span>thisをクリック<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+<pre><code>&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"zuchuu"</span>&gt;thisをクリック&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
 <h2 id="-">編集コメントを入れたい</h2>
-<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"hen"</span>&gt;</span>編：コメント<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+<pre><code>&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"hen"</span>&gt;編：コメント&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
 <h2 id="-">キーフォントにしたい</h2>
-<pre><code><span class="tag">&lt;<span class="title">del</span>&gt;</span>［Esc］<span class="tag">&lt;/<span class="title">del</span>&gt;</span>キーを押す</code></pre>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">del</span>&gt;</span>［Esc］<span class="hljs-tag">&lt;/<span class="hljs-title">del</span>&gt;</span>キーを押す</code></pre>
 <script src='http://localhost:35732/livereload.js'></script>
 
   </body>

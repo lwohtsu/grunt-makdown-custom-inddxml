@@ -7,6 +7,7 @@
 	<script src="../cssjs/jquery-2.0.3.min.js"></script>
 	<script src="../cssjs/addimagename.js"></script>
 	<link rel="stylesheet" href="../cssjs/myrule.css"> 
+  <link rel="stylesheet" href="../cssjs/hljsstyles/xcode.css"> 
   </head>
   <body>  
     <h1 id="-markdown-">原稿段階での校正のためのMarkdownワークフロー（注：社内用マニュアルです）</h1>
@@ -19,9 +20,9 @@
 <p>最初に<a href="http://js.studio-kingdom.com/grunt/doc/getting_started">Grunt</a>というものをインストールします。</p>
 <p>Gruntはタスクランナーと呼ばれる簡単にいうと<strong>バッチ処理ツール</strong>で、「特定のフォルダ内のmdファイルが更新されたら、自動的にhtmlファイルを生成して、sjisにコンバート」といった連続処理を行えます。</p>
 <p>インストール方法は、Macの場合はターミナルからこれを入力。</p>
-<pre><code class="lang-bush">su<span class="operator"><span class="keyword">do</span> npm install -g grunt-cli</code></pre>
+<pre><code class="lang-bush">sudo npm install -g grunt-<span class="hljs-keyword">cli</span></code></pre>
 <p>Windowsの場合は<a href="http://nodejs.org/download/">node.js</a>なるものをインストールしてから、sudo抜きでこれをコマンドプロンプトに入力。</p>
-<pre><code class="lang-bush"><span class="title">npm</span> install -g grunt-cli</code></pre>
+<pre><code class="lang-bush">npm install -g grunt-<span class="hljs-keyword">cli</span></code></pre>
 <h2 id="-">プロジェクトを作る</h2>
 <p>原稿データを保存するためのプロジェクトフォルダを作成します。なお、Macでは<strong>日本語フォルダ</strong>内にプロジェクトフォルダを作るとエラーになるので注意。日本語を含まないパスにフォルダを作成してください。</p>
 <p>Gruntのプロジェクトは普通コマンドで作成するのですが、ちょっとややこしいので<a href="https://github.com/lwohtsu/grunt-makdown-custom/archive/master.zip">ここ</a>からZIPファイルをダウンロードして解凍し、「cssjs」「node_modules」「Gruntfile.js」「mytemplate.html」の4つのフォルダ／ファイルをプロジェクト用フォルダにコピーしてください。</p>
@@ -39,7 +40,7 @@
 <p><strong>mdファイルと同じフォルダ内</strong>にUTF-8版のhtmlファイルが生成されるので、それをブラウザで開いておけば、その後もmdファイル保存時に自動更新されます。入力したMarkdownが間違っていないか、どういう仕上がりになるのかをチェックしながら原稿編集できて便利です。
 <img src="img/img11.png?zoom=70" alt="image1"></p>
 <p><img src="img/img10.png?zoom=80" alt="image1"></p>
-<p>現状はこれで生成されたHTMLファイルを、原稿＆指示ファイルとしてオペレータに送っているのですが、もう少し自動化できないのかというのが今後の課題。</p>
+<p>現状はこれで生成されたHTMLファイルを、原稿＆指示ファイルとしてオペレータに送っているのですが、もう少し自動化できないのかというのが今後の課題（最新版ではXML変換してもう少し自動化しました）。</p>
 <hr>
 <p>うまく起動しない場合は、日本語フォルダではないか、他にターミナルのウィンドウでGruntが動いていないかをチェックしてください。動いていたら「Control＋C」で終了します。</p>
 <p>Gruntを複数実行しても本来は問題ないのですが、ブラウザを自動更新するためのこのプロジェクトの場合livereloadのポート番号を当たってしまうため、Gruntfile.jsを編集してプロジェクトごとに変える必要があります（その説明がちょっとややこしいので、同時に複数開かないほうがいいという話）。</p>

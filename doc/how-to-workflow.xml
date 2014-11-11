@@ -11,11 +11,11 @@
 <p>Gruntはタスクランナーと呼ばれる簡単にいうと<strong>バッチ処理ツール</strong>で、「特定のフォルダ内のmdファイルが更新されたら、自動的にhtmlファイルを生成して、sjisにコンバート」といった連続処理を行えます。</p>
 <p>インストール方法は、Macの場合はターミナルからこれを入力。</p>
 <codelist>
-<pre><code>su<span_keyword>do</span_keyword> npm install -g grunt-cli</code></pre>
+<pre><code>sudo npm install -g grunt-<span_hljs-keyword>cli</span_hljs-keyword></code></pre>
 </codelist>
 <p>Windowsの場合はnode.js（http://nodejs.org/download/）なるものをインストールしてから、sudo抜きでこれをコマンドプロンプトに入力。</p>
 <codelist>
-<pre><code><span_title>npm</span_title> install -g grunt-cli</code></pre>
+<pre><code>npm install -g grunt-<span_hljs-keyword>cli</span_hljs-keyword></code></pre>
 </codelist>
 <h2><alert>h2</alert>プロジェクトを作る</h2>
 <p>原稿データを保存するためのプロジェクトフォルダを作成します。なお、Macでは<strong>日本語フォルダ</strong>内にプロジェクトフォルダを作るとエラーになるので注意。日本語を含まないパスにフォルダを作成してください。</p>
@@ -39,7 +39,7 @@
 <figcaption>image1</figcaption>
 <figure><img href="file://img/img10.png" data-zoom="80" /></figure>
 <figcaption>image1</figcaption>
-<p>現状はこれで生成されたHTMLファイルを、原稿＆指示ファイルとしてオペレータに送っているのですが、もう少し自動化できないのかというのが今後の課題。</p>
+<p>現状はこれで生成されたHTMLファイルを、原稿＆指示ファイルとしてオペレータに送っているのですが、もう少し自動化できないのかというのが今後の課題（最新版ではXML変換してもう少し自動化しました）。</p>
 <hr/>
 <p>うまく起動しない場合は、日本語フォルダではないか、他にターミナルのウィンドウでGruntが動いていないかをチェックしてください。動いていたら「Control＋C」で終了します。</p>
 <p>Gruntを複数実行しても本来は問題ないのですが、ブラウザを自動更新するためのこのプロジェクトの場合livereloadのポート番号を当たってしまうため、Gruntfile.jsを編集してプロジェクトごとに変える必要があります（その説明がちょっとややこしいので、同時に複数開かないほうがいいという話）。</p>

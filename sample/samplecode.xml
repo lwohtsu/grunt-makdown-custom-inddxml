@@ -1,29 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?><story xmlns:aid5="http://ns.adobe.com/AdobeInDesign/5.0/" xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"><body>
 <h2><alert>h2</alert>sample test code</h2>
 <codelist>
-<pre><code><span_class>.sample-large</span_class> {</code></pre>
-<pre><code>  @<span_keyword>extend</span_keyword><span_preprocessor> .sample-base</span_preprocessor>;</code></pre>
+<pre><code><span_hljs-class>.sample-large</span_hljs-class> {</code></pre>
+<pre><code>  @<span_hljs-keyword>extend</span_hljs-keyword><span_hljs-preprocessor> .sample-base</span_hljs-preprocessor>;</code></pre>
 <pre><code>}</code></pre>
 </codelist>
 <codelist>
-<pre><code>[<span_class>AddComponentMenu</span_class>(<span_string>"Utage/ADV/UiMessageWindow"</span_string>)]</code></pre>
-<pre><code><span_keyword>public</span_keyword> <span_keyword>class</span_keyword> <span_class>AdvUguiMessageWindow</span_class> : <span_class>MonoBehaviour</span_class></code></pre>
+<pre><code>[<span_hljs-class>AddComponentMenu</span_hljs-class>(<span_hljs-string>"Utage/ADV/UiMessageWindow"</span_hljs-string>)]</code></pre>
+<pre><code><span_hljs-keyword>public</span_hljs-keyword> <span_hljs-keyword>class</span_hljs-keyword> <span_hljs-class>AdvUguiMessageWindow</span_hljs-class> : <span_hljs-class>MonoBehaviour</span_hljs-class></code></pre>
 <pre><code>{</code></pre>
-<pre><code>  <span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>ADVエンジン<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></code></pre>
-<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
-<pre><code>  <span_class>AdvEngine</span_class> engine;</code></pre>
+<pre><code>  <span_hljs-xmlDocTag>///</span_hljs-xmlDocTag> <span_hljs-xmlDocTag>&lt;summary&gt;</span_hljs-xmlDocTag>ADVエンジン<span_hljs-xmlDocTag>&lt;/summary&gt;</span_hljs-xmlDocTag></code></pre>
+<pre><code>  [<span_hljs-class>SerializeField</span_hljs-class>]</code></pre>
+<pre><code>  <span_hljs-class>AdvEngine</span_hljs-class> engine;</code></pre>
 <pre><code></code></pre>
-<pre><code>  <span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>本文テキスト<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></code></pre>
-<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
+<pre><code>  <span_hljs-xmlDocTag>///</span_hljs-xmlDocTag> <span_hljs-xmlDocTag>&lt;summary&gt;</span_hljs-xmlDocTag>本文テキスト<span_hljs-xmlDocTag>&lt;/summary&gt;</span_hljs-xmlDocTag></code></pre>
+<pre><code>  [<span_hljs-class>SerializeField</span_hljs-class>]</code></pre>
 <pre><code>  Text text;</code></pre>
 <pre><code></code></pre>
-<pre><code>  <span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>名前表示テキスト<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></code></pre>
-<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
+<pre><code>  <span_hljs-xmlDocTag>///</span_hljs-xmlDocTag> <span_hljs-xmlDocTag>&lt;summary&gt;</span_hljs-xmlDocTag>名前表示テキスト<span_hljs-xmlDocTag>&lt;/summary&gt;</span_hljs-xmlDocTag></code></pre>
+<pre><code>  [<span_hljs-class>SerializeField</span_hljs-class>]</code></pre>
 <pre><code>  Text nameText;</code></pre>
 <pre><code></code></pre>
-<pre><code>  <span_xmlDocTag>///</span_xmlDocTag> <span_xmlDocTag>&lt;summary&gt;</span_xmlDocTag>ウインドウのルート<span_xmlDocTag>&lt;/summary&gt;</span_xmlDocTag></code></pre>
-<pre><code>  [<span_class>SerializeField</span_class>]</code></pre>
+<pre><code>  <span_hljs-xmlDocTag>///</span_hljs-xmlDocTag> <span_hljs-xmlDocTag>&lt;summary&gt;</span_hljs-xmlDocTag>ウインドウのルート<span_hljs-xmlDocTag>&lt;/summary&gt;</span_hljs-xmlDocTag></code></pre>
+<pre><code>  [<span_hljs-class>SerializeField</span_hljs-class>]</code></pre>
 <pre><code>  GameObject rootChildren;</code></pre>
+<pre><code>}</code></pre>
+</codelist>
+<codelist>
+<pre><code>import UIKit</code></pre>
+<pre><code></code></pre>
+<pre><code>class ViewController: <span_hljs-built_in>UIViewController</span_hljs-built_in> {</code></pre>
+<pre><code></code></pre>
+<pre><code>    @IBOutlet <span_hljs-keyword>weak</span_hljs-keyword> var mySlider: UISlider!</code></pre>
+<pre><code></code></pre>
+<pre><code>    override func viewDidLoad() {</code></pre>
+<pre><code>        <span_hljs-keyword>super</span_hljs-keyword><span_hljs-variable>.viewDidLoad</span_hljs-variable>()</code></pre>
+<pre><code></code></pre>
+<pre><code>        mySlider<span_hljs-variable>.setThumbImage</span_hljs-variable>(</code></pre>
+<pre><code>            <span_hljs-built_in>UIImage</span_hljs-built_in>(named: <span_hljs-string>"slider_thumb"</span_hljs-string>),</code></pre>
+<pre><code>            forState: <span_hljs-variable>.Normal</span_hljs-variable></code></pre>
+<pre><code>        )</code></pre>
+<pre><code>    }</code></pre>
+<pre><code></code></pre>
+<pre><code>    override func didReceiveMemoryWarning() {</code></pre>
+<pre><code>        <span_hljs-keyword>super</span_hljs-keyword><span_hljs-variable>.didReceiveMemoryWarning</span_hljs-variable>()</code></pre>
+<pre><code>        <span_hljs-comment>// Dispose of any resources that can be recreated.</span_hljs-comment></code></pre>
+<pre><code>    }</code></pre>
+<pre><code>}</code></pre>
+</codelist>
+<codelist>
+<pre><code><span_hljs-keyword>extension</span_hljs-keyword> <span_hljs-title>MyClass</span_hljs-title> : <span_hljs-title>Interface</span_hljs-title> {</code></pre>
+<pre><code>    <span_hljs-keyword>class</span_hljs-keyword> <span_hljs-keyword>func</span_hljs-keyword> <span_hljs-title>unarchiveFromFile</span_hljs-title><span_hljs-generics>&lt;A&gt;</span_hljs-generics>(file : A, <span_hljs-params>(Int,Int)</span_hljs-params> -&gt; B) -&gt; <span_hljs-title>SKNode</span_hljs-title>? {</code></pre>
+<pre><code>        <span_hljs-keyword>let</span_hljs-keyword> path: <span_hljs-type>String</span_hljs-type> = bundle.pathForResource(file, ofType: "file\(name + <span_hljs-number>5</span_hljs-number>).txt")</code></pre>
+<pre><code>        <span_hljs-keyword>let</span_hljs-keyword> funnyNumber = <span_hljs-number>3</span_hljs-number> + <span_hljs-number>0xC2.15p2</span_hljs-number> * (<span_hljs-number>1_000_000.000_000_1</span_hljs-number> - <span_hljs-number>000123.456</span_hljs-number>) + <span_hljs-number>0o21</span_hljs-number></code></pre>
+<pre><code>        <span_hljs-keyword>var</span_hljs-keyword> sceneData = <span_hljs-type>NSData</span_hljs-type>.dataWithContentsOfFile(path, options: .<span_hljs-type>DataReadingMappedIfSafe</span_hljs-type>, error: <span_hljs-built_in>nil</span_hljs-built_in>)</code></pre>
+<pre><code>        /* a comment <span_hljs-comment>/* with a nested comment */</span_hljs-comment> and the end */</code></pre>
+<pre><code>    }</code></pre>
+<pre><code>    <span_hljs-preprocessor>@objc</span_hljs-preprocessor> <span_hljs-keyword>override</span_hljs-keyword> <span_hljs-keyword>func</span_hljs-keyword> <span_hljs-title>shouldAutorotate</span_hljs-title><span_hljs-params>()</span_hljs-params> {</code></pre>
+<pre><code>        <span_hljs-keyword>return</span_hljs-keyword> <span_hljs-built_in>true</span_hljs-built_in></code></pre>
+<pre><code>    }</code></pre>
 <pre><code>}</code></pre>
 </codelist>
 <script src='http://localhost:35732/livereload.js'></script>

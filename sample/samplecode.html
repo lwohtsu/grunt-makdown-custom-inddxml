@@ -7,30 +7,62 @@
 	<script src="../cssjs/jquery-2.0.3.min.js"></script>
 	<script src="../cssjs/addimagename.js"></script>
 	<link rel="stylesheet" href="../cssjs/myrule.css"> 
+  <link rel="stylesheet" href="../cssjs/hljsstyles/xcode.css"> 
   </head>
   <body>  
     <h2 id="sample-test-code">sample test code</h2>
-<pre><code class="lang-scss"><span class="class">.sample-large</span> {
-  <span class="at_rule">@<span class="keyword">extend</span><span class="preprocessor"> .sample-base</span>;</span>
+<pre><code class="lang-scss"><span class="hljs-class">.sample-large</span> {
+  <span class="hljs-at_rule">@<span class="hljs-keyword">extend</span><span class="hljs-preprocessor"> .sample-base</span>;</span>
 }</code></pre>
-<pre><code class="lang-cs">[<span class="class">AddComponentMenu</span>(<span class="string">"Utage/ADV/UiMessageWindow"</span>)]
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="class">AdvUguiMessageWindow</span> : <span class="class">MonoBehaviour</span>
+<pre><code class="lang-cs">[<span class="hljs-class">AddComponentMenu</span>(<span class="hljs-string">"Utage/ADV/UiMessageWindow"</span>)]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-class">AdvUguiMessageWindow</span> : <span class="hljs-class">MonoBehaviour</span>
 {
-  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>ADVエンジン<span class="xmlDocTag">&lt;/summary&gt;</span></span>
-  [<span class="class">SerializeField</span>]
-  <span class="class">AdvEngine</span> engine;
+  <span class="hljs-comment"><span class="hljs-xmlDocTag">///</span> <span class="hljs-xmlDocTag">&lt;summary&gt;</span>ADVエンジン<span class="hljs-xmlDocTag">&lt;/summary&gt;</span></span>
+  [<span class="hljs-class">SerializeField</span>]
+  <span class="hljs-class">AdvEngine</span> engine;
 
-  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>本文テキスト<span class="xmlDocTag">&lt;/summary&gt;</span></span>
-  [<span class="class">SerializeField</span>]
+  <span class="hljs-comment"><span class="hljs-xmlDocTag">///</span> <span class="hljs-xmlDocTag">&lt;summary&gt;</span>本文テキスト<span class="hljs-xmlDocTag">&lt;/summary&gt;</span></span>
+  [<span class="hljs-class">SerializeField</span>]
   Text text;
 
-  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>名前表示テキスト<span class="xmlDocTag">&lt;/summary&gt;</span></span>
-  [<span class="class">SerializeField</span>]
+  <span class="hljs-comment"><span class="hljs-xmlDocTag">///</span> <span class="hljs-xmlDocTag">&lt;summary&gt;</span>名前表示テキスト<span class="hljs-xmlDocTag">&lt;/summary&gt;</span></span>
+  [<span class="hljs-class">SerializeField</span>]
   Text nameText;
 
-  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>ウインドウのルート<span class="xmlDocTag">&lt;/summary&gt;</span></span>
-  [<span class="class">SerializeField</span>]
+  <span class="hljs-comment"><span class="hljs-xmlDocTag">///</span> <span class="hljs-xmlDocTag">&lt;summary&gt;</span>ウインドウのルート<span class="hljs-xmlDocTag">&lt;/summary&gt;</span></span>
+  [<span class="hljs-class">SerializeField</span>]
   GameObject rootChildren;
+}</code></pre>
+<pre><code class="lang-objectivec">import UIKit
+
+class ViewController: <span class="hljs-built_in">UIViewController</span> {
+
+    @IBOutlet <span class="hljs-keyword">weak</span> var mySlider: UISlider!
+
+    override func viewDidLoad() {
+        <span class="hljs-keyword">super</span><span class="hljs-variable">.viewDidLoad</span>()
+
+        mySlider<span class="hljs-variable">.setThumbImage</span>(
+            <span class="hljs-built_in">UIImage</span>(named: <span class="hljs-string">"slider_thumb"</span>),
+            forState: <span class="hljs-variable">.Normal</span>
+        )
+    }
+
+    override func didReceiveMemoryWarning() {
+        <span class="hljs-keyword">super</span><span class="hljs-variable">.didReceiveMemoryWarning</span>()
+        <span class="hljs-comment">// Dispose of any resources that can be recreated.</span>
+    }
+}</code></pre>
+<pre><code class="lang-swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">MyClass</span> : <span class="hljs-title">Interface</span> </span>{
+    <span class="hljs-keyword">class</span> <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">unarchiveFromFile</span><span class="hljs-generics">&lt;A&gt;</span><span class="hljs-params">(file : A, <span class="hljs-params">(Int,Int)</span> -&gt; B)</span> -&gt; <span class="hljs-title">SKNode</span>? </span>{
+        <span class="hljs-keyword">let</span> path: <span class="hljs-type">String</span> = bundle.pathForResource(file, ofType: <span class="hljs-string">"file<span class="hljs-subst">\(name + <span class="hljs-number">5</span>)</span>.txt"</span>)
+        <span class="hljs-keyword">let</span> funnyNumber = <span class="hljs-number">3</span> + <span class="hljs-number">0xC2.15p2</span> * (<span class="hljs-number">1_000_000.000_000_1</span> - <span class="hljs-number">000123.456</span>) + <span class="hljs-number">0o21</span>
+        <span class="hljs-keyword">var</span> sceneData = <span class="hljs-type">NSData</span>.dataWithContentsOfFile(path, options: .<span class="hljs-type">DataReadingMappedIfSafe</span>, error: <span class="hljs-built_in">nil</span>)
+        <span class="hljs-comment">/* a comment <span class="hljs-comment">/* with a nested comment */</span> and the end */</span>
+    }
+    <span class="hljs-preprocessor">@objc</span> <span class="hljs-keyword">override</span> <span class="hljs-func"><span class="hljs-keyword">func</span> <span class="hljs-title">shouldAutorotate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">true</span>
+    }
 }</code></pre>
 <script src='http://localhost:35732/livereload.js'></script>
 
