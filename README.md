@@ -91,3 +91,6 @@ UTF-8からSjift JISファイルへの変換時に、変換不可能な記号が
 ```
 var conv   = new Iconv('UTF-8', 'SHIFT-JIS//TRANSLIT//IGNORE');
 ```
+
+## swiftにも対応
+古いhighlight.jsに「this.PHRASAL_WORDS_MODE」「TITLE_MODE」を移植。
