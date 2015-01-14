@@ -3,7 +3,7 @@
 <p>もともとはgrunt-markdownをちょっと変更する目的で始めましたが、Just Right用のSJIS変換や、InDesign読み込み用のXML変換と分割しにくくなったので、統合しました。CS4でしかテストしていませんが、他でも動きそうです。</p>
 <h2><alert>h2</alert>利用方法</h2>
 <p>grunt本来のインストール方法と違っているのですが、grunt-cliのグローバルインストールを済ませた後、このプロジェクトをダウンロードして解凍します。できあがったフォルダ内にMarkdownの原稿を入れて、コマンドラインから「grunt」「grunt xml」「grunt sjis」のいずれかを実行します。</p>
-<p>あまりよくわからないという人は以下を参照してください。</p>
+<p>あまりよくわからないという人は以下を参照してください（私もあまりわかっていません）。</p>
 <p>https://github.com/lwohtsu/grunt-makdown-custom/blob/master/doc/how-to-workflow.md（https://github.com/lwohtsu/grunt-makdown-custom/blob/master/doc/how-to-workflow.md）</p>
 <h2><alert>h2</alert>コマンド</h2>
 <h3><alert>h3</alert>grunt</h3>
@@ -30,43 +30,14 @@
 <p>詳しい使い方はhttp://arinoth.hatenablog.com/entry/2014/10/13/065953（http://arinoth.hatenablog.com/entry/2014/10/13/065953）</p>
 <hr/>
 <h2><alert>h2</alert>grunt-markdownの変更部分（古いドキュメント）</h2>
-<p>how to add SCSS support to grunt-markdown</p>
-<p>いずれ不要になるかもしれないですが、grunt-markdown（https://github.com/treasonx/grunt-markdown）に含まれるhightlight.jsの7.3.0ではSass（scss）をサポートしていないのでそれを足す方法と、ついでにcsファイルでUnity用のクラスを着色する方法のメモです。</p>
-<h3><alert>h3</alert>1.set visible node_modules folder</h3>
-<p>gurnt-markdownをインストールした後、不可視になっているnode_moduleフォルダーを可視化します。</p>
-<h3><alert>h3</alert>2.Add scss.js</h3>
-<p>以下のコマンドで最新のhighlight.jsを別のフォルダにインストールし、こちらのnode_modulesフォルダも可視化します。</p>
-<codelist>
-<pre><code>npm install highlight.js</code></pre>
-</codelist>
-<p>node_modules -&gt; highlight.js -&gt; lib -&gt; languagesフォルダ内からscss.jsをコピーして、grunt-markdownフォルダー内のhighlight.js内に移動します。</p>
-<p>https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c（https://github.com/lwohtsu/grunt-makdown-custom/commit/96e3ca8a8d118bf9d226c7fbc1bd170d5f3a7e6c）</p>
-<h3><alert>h3</alert>3.edit highlight.js</h3>
-<p>highlight.jsに「this.CSS_NUMBER_MODE」と「hljs.LANGUAGES[&#39;scss&#39;]」を追加します。</p>
-<p>https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39（https://github.com/lwohtsu/grunt-makdown-custom/commit/3491334b92c794f3fc2e42ea22dd6e1779839a39）</p>
-<h3><alert>h3</alert>4.edit cs.js</h3>
-<p>csファイルでUnity用のクラスが着色されるようにするには、最初のkeywordsの部分を以下のように修正して、クラス名を列挙します。</p>
-<p>https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea（https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea）</p>
+<p>highlight.jsフォルダを探し、そこに最新のhighligh.jsをコピーすればOK（grunt-markdownの依存バージョンを変更するだけでいいのかもしれません？）。ただし、クラス名が「hljs-comment」という名前に変わるので、CSSの変更が必要なようです。</p>
+<p>highlight.js同梱のstylesフォルダからcssを読み込むようテンプレートを設定すればOKです。</p>
+<p>-### edit cs.js-csファイルでUnity用のクラスが着色されるようにするには、-最初のkeywordsの部分を以下のように修正して、クラス名を列挙します。--https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea（https://github.com/lwohtsu/grunt-makdown-custom/commit/9cdabc16471c0ba50a8b17201c8e5d3faa8b0dea）</p>
 <h3><alert>h3</alert>5.grunt-utf8tosjisの調整</h3>
 <p>UTF-8からSjift JISファイルへの変換時に、変換不可能な記号があると停止してしまうようです。「mode_modules/tasks/utf8tosjis.js」を開いて、次のようにコードを変更すると、変換不可能な記号を適当なものに置き換えて書き出してくれます。</p>
 <codelist>
 <pre><code><span_hljs-keyword>var</span_hljs-keyword> conv   = <span_hljs-keyword>new</span_hljs-keyword> <span_hljs-type>Iconv</span_hljs-type>(<span_hljs-symbol>'UTF</span_hljs-symbol>-<span_hljs-number>8</span_hljs-number>', <span_hljs-symbol>'SHIFT</span_hljs-symbol>-<span_hljs-type>JIS</span_hljs-type><span_hljs-comment>//TRANSLIT//IGNORE');</span_hljs-comment></code></pre>
 </codelist>
-<h2><alert>h2</alert>swiftにも対応</h2>
-<p>古いhighlight.jsに「this.PHRASAL_WORDS_MODE」「TITLE_MODE」「IDENT_RE」を移植reStr関数を追加し、langRe関数を次のように書き換える必要がある。</p>
-<codelist>
-<pre><code>    function <span_hljs-title>reStr</span_hljs-title><span_hljs-params>(re)</span_hljs-params> {</code></pre>
-<pre><code>        <span_hljs-keyword>return</span_hljs-keyword> (re &amp;&amp; re.source) || re;</code></pre>
-<pre><code>    }</code></pre>
-<pre><code></code></pre>
-<pre><code>    function <span_hljs-title>langRe</span_hljs-title><span_hljs-params>(value, global)</span_hljs-params> {</code></pre>
-<pre><code>      <span_hljs-keyword>return</span_hljs-keyword> <span_hljs-title>RegExp</span_hljs-title>(</code></pre>
-<pre><code>        reStr(value),</code></pre>
-<pre><code>        'm' + (language.case_insensitive ? <span_hljs-string>'i'</span_hljs-string> : <span_hljs-string>''</span_hljs-string>) + (global ? <span_hljs-string>'g'</span_hljs-string> : <span_hljs-string>''</span_hljs-string>)</code></pre>
-<pre><code>      );</code></pre>
-<pre><code>    }</code></pre>
-</codelist>
-<p>これをしないと「Cannot supply flags when constructing one RegExp from another」というエラーが出る。</p>
 <script src='http://localhost:35732/livereload.js'></script>
 </body>
 </story>

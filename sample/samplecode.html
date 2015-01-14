@@ -35,7 +35,7 @@
 }</code></pre>
 <pre><code class="lang-objectivec">import UIKit
 
-class ViewController: <span class="hljs-built_in">UIViewController</span> {
+<span class="hljs-class"><span class="hljs-keyword">@class</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">UIViewController</span> </span>{
 
     @IBOutlet <span class="hljs-keyword">weak</span> var mySlider: UISlider!
 
@@ -46,6 +46,9 @@ class ViewController: <span class="hljs-built_in">UIViewController</span> {
             <span class="hljs-built_in">UIImage</span>(named: <span class="hljs-string">"slider_thumb"</span>),
             forState: <span class="hljs-variable">.Normal</span>
         )
+        <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; i++){
+
+        }
     }
 
     override func didReceiveMemoryWarning() {

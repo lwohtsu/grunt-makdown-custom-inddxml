@@ -31,7 +31,7 @@ public class AdvUguiMessageWindow : MonoBehaviour
 ```objectivec
 import UIKit
 
-class ViewController: UIViewController {
+@class ViewController: UIViewController {
                             
     @IBOutlet weak var mySlider: UISlider!
     
@@ -42,6 +42,9 @@ class ViewController: UIViewController {
             UIImage(named: "slider_thumb"),
             forState: .Normal
         )
+        for(i=0; i<10; i++){
+          
+        }
     }
 
     override func didReceiveMemoryWarning() {

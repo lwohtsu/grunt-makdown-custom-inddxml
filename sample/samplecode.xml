@@ -29,7 +29,7 @@
 <codelist>
 <pre><code>import UIKit</code></pre>
 <pre><code></code></pre>
-<pre><code>class ViewController: <span_hljs-built_in>UIViewController</span_hljs-built_in> {</code></pre>
+<pre><code><span_hljs-keyword>@class</span_hljs-keyword> <span_hljs-title>ViewController</span_hljs-title>: <span_hljs-title>UIViewController</span_hljs-title> {</code></pre>
 <pre><code></code></pre>
 <pre><code>    @IBOutlet <span_hljs-keyword>weak</span_hljs-keyword> var mySlider: UISlider!</code></pre>
 <pre><code></code></pre>
@@ -40,6 +40,9 @@
 <pre><code>            <span_hljs-built_in>UIImage</span_hljs-built_in>(named: <span_hljs-string>"slider_thumb"</span_hljs-string>),</code></pre>
 <pre><code>            forState: <span_hljs-variable>.Normal</span_hljs-variable></code></pre>
 <pre><code>        )</code></pre>
+<pre><code>        <span_hljs-keyword>for</span_hljs-keyword>(i=<span_hljs-number>0</span_hljs-number>; i&lt;<span_hljs-number>10</span_hljs-number>; i++){</code></pre>
+<pre><code></code></pre>
+<pre><code>        }</code></pre>
 <pre><code>    }</code></pre>
 <pre><code></code></pre>
 <pre><code>    override func didReceiveMemoryWarning() {</code></pre>

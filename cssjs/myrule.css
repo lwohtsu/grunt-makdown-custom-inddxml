@@ -87,7 +87,7 @@ code.lang-cmd{
 strong{
 	color: #F08;
 }
-del{
+kbd{
 	text-decoration: none;
 	border: solid 1px #0BF;
 	background:  #8EF;
