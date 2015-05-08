@@ -5,7 +5,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['**/*.md', '!node_modules/**/*.md'],
+                        src: ['**/*.md', '!node_modules/**/*.md', '!**/ignore/**/*.md'],
                         ext: '.html'
                     }
                 ],
@@ -23,11 +23,11 @@ module.exports = function(grunt) {
         },
         watch:{
             md: {
-                files: '**/*.md',
+                files: ['**/*.md', '!**/ignore/**/*.*'],
                 tasks: ['markdown'],
             },
             html: {
-                files: ['**/*.html', '!kousei-sjis/**/*.html'],
+                files: ['**/*.html', '!kousei-sjis/**/*.html', '!**/ignore/**/*.html'],
                 tasks: [ ],
                 options: {
                     livereload: 35732
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         replace:{
             example: {
                 expand: true,
-                src: ['**/*.html', '!node_modules/**/*.html', '!kousei-sjis/**/*.html'],
+                src: ['**/*.html', '!node_modules/**/*.html', '!kousei-sjis/**/*.html', '!**/ignore/**/*.html', '!**/mytemplate.html'],
                 dest: 'kousei-sjis/',
                 replacements: [{
                     from:  '<meta charset="utf-8">',
@@ -57,14 +57,14 @@ module.exports = function(grunt) {
         utf8tosjis:{
             dist:{
                 expand: true,
-                src: ['kousei-sjis/**/*.html', '!mytemplate.html'],
+                src: ['kousei-sjis/**/*.html', '!**/mytemplate.html', '!**/ignore/**/*.html'],
                 overwrite: true,
             }
         },
         html2indtag: {
             dist: {
                 expand: true,
-                src: ['**/*.html', '!node_modules/**/*.html', '!mytemplate.html', '!kousei-sjis/**/*.html'],
+                src: ['**/*.html', '!node_modules/**/*.html', '!mytemplate.html', '!kousei-sjis/**/*.html', '!**/ignore/**/*.html'],
                 ext: '.xml'
             },
             options: {
