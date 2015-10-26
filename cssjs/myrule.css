@@ -1,7 +1,9 @@
-span.araki{background:#00F; padding:0.25em;color:white;border-radius:16px;}
-span.shirokane{background:#0B8; padding:0.25em;color:white;border-radius:16px;}
-span.shibuya{background:#F0D; padding:0.25em;color:white;border-radius:16px;}
-
+div.chapter{
+  margin-top: 3em;
+  font-size: 2.5em;
+  border-top:solid 4px #F08;
+  border-bottom:solid 4px #F08;
+}
 
 div.hen{background: #ff0; color:#D00; font-size: 0.7em;}
 img {
