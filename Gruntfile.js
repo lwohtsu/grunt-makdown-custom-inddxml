@@ -54,13 +54,13 @@ module.exports = function(grunt) {
                 ]
             }
         },
-        utf8tosjis:{
-            dist:{
-                expand: true,
-                src: ['kousei-sjis/**/*.html', '!**/mytemplate.html', '!**/ignore/**/*.html'],
-                overwrite: true,
-            }
-        },
+        // utf8tosjis:{
+        //     dist:{
+        //         expand: true,
+        //         src: ['kousei-sjis/**/*.html', '!**/mytemplate.html', '!**/ignore/**/*.html'],
+        //         overwrite: true,
+        //     }
+        // },
         html2indtag: {
             dist: {
                 expand: true,
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
         }
     });
  
-    grunt.loadNpmTasks('grunt-utf8tosjis');
+    // grunt.loadNpmTasks('grunt-utf8tosjis');
     grunt.loadNpmTasks('grunt-markdown');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-text-replace');
